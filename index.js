@@ -19,17 +19,16 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET, // Corrected spelling
 });
 
-
 const app = express();
 
 //? MiddleWares
-app.use(express.json({limit:"20mb"}));
+app.use(express.json({ limit: "20mb" }));
 app.use(morgan("common"));
 app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:3000",
+    origin: process.env.CORS_ORIGIN,
   })
 );
 
